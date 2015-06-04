@@ -1,0 +1,15 @@
+package trab3;
+
+public class Alunos extends Usuario {
+	
+	int Num; //Numero para identificacao
+	
+	
+	
+	
+	public Alunos(int TMax,int NMax){
+		super( TMax, NMax);
+
+	}
+
+}

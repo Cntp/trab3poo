@@ -1,0 +1,10 @@
+package trab3;
+
+public class Professores extends Usuario{
+	
+	public Professores(int numEmprestados,int TMax,int NMax){
+		
+		
+	}
+
+}

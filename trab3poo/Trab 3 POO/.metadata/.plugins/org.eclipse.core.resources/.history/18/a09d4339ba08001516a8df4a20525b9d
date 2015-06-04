@@ -1,0 +1,20 @@
+package trab3;
+
+import java.io.IOException;
+
+public interface ADM {
+
+	public void Reg_Devolucao(Usuario A, Livro B); //Registra a devolucao do Livro. Tira da lista de emprestimos do usuario. Aplica(Ou nao) a suspensao
+	public void Reg_Emprestimo(Usuario A, Livro B)throws IOException; //Incrementa o numero de emprestimos do usuario. Decrementa a qntd disponivel desse livro
+	
+	public void Avisar_Atraso(Usuario A, Livro B); //Avisa que o usuario A esta devendo o Livro B, que esta X dias atrasado e o tempo de suspensao(se retornado no dia)
+	
+	public int Calc_Atraso(Usuario A); //Percorre lista de emprestimos do usuario e checa se algum livro esta atrasado. Se sim, deve informar quantos dias cada livro
+	//esta atrasado.
+	public int Calc_Suspensao(Usuario A); //Caso o usuario A esteja atrasado, calcula quanto tempo o mesmo devera ser suspenso. 
+	
+	public void Listar_Livros() throws Exception;//Lista todos os livros cadastrados
+	public void Listar_Usuarios() throws Exception; //Lista todos os usuarios cadastrados
+	public void Listar_Emprestimos() throws Exception; //Lista todos os emprestimos feitos
+
+}

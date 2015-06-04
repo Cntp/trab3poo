@@ -1,0 +1,40 @@
+package trab3;
+
+import java.io.FileWriter;
+
+import com.opencsv.CSVWriter;
+
+public class Texto extends Livro { //Este tipo de livro so pode ser emprestado por profs e alunos
+	public void Cadastrar_Livro(Livro NovoLivro) throws Exception {
+		// TODO Auto-generated method stub
+		
+		
+		
+		String [] Infos;
+		Infos = new String[5];
+		Infos[0] = "Rfereenan";//titulo
+		NovoLivro.Titulo = Infos[0];
+		Infos[1] = "Vitofdwefdr";//autor
+		NovoLivro.Autor = Infos[1];
+		Infos[2] = "1";//quantidade
+		NovoLivro.Quantidade = Integer.parseInt(Infos[2]);
+		Infos[3] = "3";//disponiveis
+		NovoLivro.Disponiveis = Integer.parseInt(Infos[3]);
+		Infos[4] = "Texto";
+		//Inputs
+		
+		
+		//
+		String csv = "LIVRO.csv";
+		CSVWriter writer = new CSVWriter(new FileWriter(csv, true));
+		writer.writeNext(Infos);		 
+		writer.close();
+		
+		
+	}
+	
+	public Texto(){
+		//super(Titulo, Autor, Quantidade, Disponiveis);
+		
+	}
+}

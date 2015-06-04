@@ -1,0 +1,8 @@
+package trab3;
+
+public class Comum extends Usuario {
+
+	public Comum(int TMax,int NMax, String Tipo){
+		super(15, 2,"Comum");	//O usuario comum tem 15 dias de prazo e pode emprestar ate 2 livros de uma vez
+	}
+}

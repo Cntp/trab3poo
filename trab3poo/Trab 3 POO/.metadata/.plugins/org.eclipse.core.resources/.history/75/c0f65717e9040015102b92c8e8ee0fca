@@ -1,0 +1,20 @@
+package trab3;
+
+public class Livro {
+	int Pags;
+	String Autor;
+	int Quantidade;
+	boolean Disponivel;
+	
+	
+	public Livro(int Pags, String Autor, int Quantidade, boolean Disponivel){
+		this.Pags = Pags;
+		this.Autor = Autor;
+		this.Quantidade = Quantidade;
+		this.Disponivel = Disponivel;
+		
+		
+		
+	}
+	
+}

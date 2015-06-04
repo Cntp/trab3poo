@@ -1,0 +1,11 @@
+package trab3;
+
+public class Comum extends Usuario {
+
+	
+	public Comum(){
+		
+		
+		super(numEmprestados, TMax, NMax);
+	}
+}

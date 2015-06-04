@@ -1,0 +1,10 @@
+package trab3;
+
+public class Geral extends Livro{//este tipo de livro pode ser emprestado por todos
+	
+	public Geral(String Titulo, String Autor, int Quantidade, int Disponiveis){
+		super(Titulo, Autor, Quantidade, Disponiveis);
+		
+	}
+
+}

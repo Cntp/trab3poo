@@ -1,0 +1,21 @@
+package trab3;
+
+public class Livro {
+	int Pags;//Qntd de paginas do Livro
+	String Autor; 
+	int Quantidade; //Qntd disponivel desse livro
+	boolean Disponivel;
+	int Cod; //Codigo para identificacao
+	
+	
+	public Livro(int Pags, String Autor, int Quantidade, boolean Disponivel){
+		this.Pags = Pags;
+		this.Autor = Autor;
+		this.Quantidade = Quantidade;
+		this.Disponivel = Disponivel;
+		
+		
+		
+	}
+	
+}

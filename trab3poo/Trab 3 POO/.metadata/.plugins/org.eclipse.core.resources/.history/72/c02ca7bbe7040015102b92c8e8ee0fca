@@ -1,0 +1,10 @@
+package trab3;
+
+public class Professores extends Usuario{
+	
+	public Professores(int TMax,int NMax){
+		super(TMax, NMax);
+		
+	}
+
+}

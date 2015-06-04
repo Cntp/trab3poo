@@ -1,0 +1,10 @@
+package trab3;
+
+public class Geral extends Livro{
+	
+	public Geral(int Pags, String Autor, int Quantidade, boolean Disponivel){
+		super(Pags, Autor, Quantidade, Disponivel);
+		
+	}
+
+}

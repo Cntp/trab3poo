@@ -1,0 +1,28 @@
+package trab3;
+
+public class Biblioteca implements ADM {
+	
+	public void Cadastrar_Livro(Livro NovoLivro){}
+	public void Cadastrar_Usuario(Usuario NovoUsuario){}
+	
+	public void Reg_Devolucoes() {}
+	public void Reg_Emprestimo() {}
+	
+	public void Avisar_Atraso() {}
+	
+	public int Calc_Atraso() {
+		return 0;}
+	public int Calc_Suspensao() {
+		return 0;}
+	
+	public void Listar_Livros() {}
+	public void Listar_Usuarios() {}
+	public void Listar_Emprestimos() {}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+	}
+
+}

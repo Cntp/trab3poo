@@ -1,0 +1,46 @@
+package trab3;
+
+import java.io.FileWriter;
+import java.lang;
+
+import com.opencsv.CSVWriter;
+
+public class Livro extends Biblioteca {
+	String Titulo;
+	String Autor; 
+	int Quantidade; //Qntd disponivel desse livro
+	int Disponiveis;
+	int Cod; //Codigo para identificacao
+	
+	public void Cadastrar_Livro(Livro NovoLivro) throws Exception {
+		// TODO Auto-generated method stub
+		
+		NovoLivro = new Livro();
+		
+		String [] Infos;
+		Infos = new String[4];
+		Infos[0] = "Renan";//titulo
+		NovoLivro.Titulo = Infos[0];
+		Infos[1] = "Vitor";//autor
+		NovoLivro.Autor = Infos[1];
+		Infos[2] = "Fukushima";//quantidade
+		NovoLivro.Quantidade = Integer.parseInt(Infos[2]);
+		Infos[3] = "Sheidson";//disponiveis
+		//Inputs
+		
+		
+		//
+		String csv = "LIVRO.csv";
+		CSVWriter writer = new CSVWriter(new FileWriter(csv));
+		 
+		//String [] country = "India#China#United States".split("#");
+		 
+		writer.writeNext(Infos);
+		 
+		writer.close();
+		
+		
+	}
+	public Livro(){}
+	
+}

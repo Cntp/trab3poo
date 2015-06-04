@@ -1,0 +1,11 @@
+package trab3;
+
+public class Alunos extends Usuario {
+	
+	public Alunos(int numEmprestados,int TMax,int NMax){
+		super(numEmprestados, TMax, NMax);
+		
+		
+	}
+
+}

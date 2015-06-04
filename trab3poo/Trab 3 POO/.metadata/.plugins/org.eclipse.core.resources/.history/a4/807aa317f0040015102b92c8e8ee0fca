@@ -1,0 +1,20 @@
+package trab3;
+
+public class Usuario {
+	
+	String Nome;
+	int numEmprestimos;
+	boolean Atrasado;
+	
+	int TMax;
+	int NMax;
+	
+	public Usuario(int TMax,int NMax){
+		
+		this.TMax = TMax;
+		this.NMax = NMax;
+		
+	}
+	
+
+}

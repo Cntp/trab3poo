@@ -1,0 +1,55 @@
+package trab3;
+
+
+import java.io.FileReader;
+
+import com.opencsv.CSVReader;
+
+public class Usuario extends Biblioteca {
+	
+	String Nome;
+	int numEmprestimos; //Numero de Emprestimos feitos ate o momento
+	boolean Atrasado;
+	int ID; //Numero da pessoa dentro do Sistema
+	int[] CodLivros; //Codigos dos livros emprestados
+	String Tipo;
+	
+	
+	int TMax;//Tempo maximo que o usuario pode ficar com o livro
+	int NMax;//Numero maximo de emprestimos que o usuario pode fazer
+	
+	public void Cadastrar_Usuario(Usuario NovoUsuario){} //Cadastra o usuario no Arq
+	
+	public static Usuario[] Load() throws Exception{
+		
+		Usuario[] A;
+		A = new Usuario[3];
+		String csvFilename = "USUARIO.csv";
+		CSVReader csvReader = new CSVReader(new FileReader(csvFilename));
+		String[] row = null;
+		while((row = csvReader.readNext()) != null) {
+			int i = 0;
+		    A[i].Nome=row[0];
+		    System.out.println(A[i].Nome);
+		    A[i].Tipo=row[1];
+		    A[i].numEmprestimos=Integer.parseInt(row[2]);
+		    A[i].ID=Integer.parseInt(row[3]);
+		    
+		}
+		//...
+		csvReader.close();
+		
+		
+		return A;
+	}
+	
+	public Usuario(int TMax,int NMax, String Tipo){
+		
+		this.TMax = TMax;
+		this.NMax = NMax;
+		this.Tipo = Tipo;
+		
+	}
+	
+
+}

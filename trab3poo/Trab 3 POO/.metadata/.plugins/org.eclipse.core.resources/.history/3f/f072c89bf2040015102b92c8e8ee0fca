@@ -1,0 +1,8 @@
+package trab3;
+
+public class Comum extends Usuario {
+
+	public Comum(int TMax,int NMax){
+		super(15, 2);
+	}
+}

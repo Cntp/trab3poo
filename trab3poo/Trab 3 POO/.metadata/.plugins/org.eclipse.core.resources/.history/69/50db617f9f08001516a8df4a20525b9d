@@ -1,0 +1,18 @@
+package trab3;
+
+import java.io.FileWriter;
+
+
+import com.opencsv.CSVWriter;
+
+public class Livro extends Biblioteca {
+	String Titulo;
+	String Autor; 
+	int Quantidade; //Qntd disponivel desse livro
+	int Disponiveis;
+	int Cod; //Codigo para identificacao
+	
+	
+	public Livro(){}
+	
+}

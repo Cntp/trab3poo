@@ -1,0 +1,20 @@
+package trab3;
+
+public interface ADM {
+	
+	public void Cadastrar_Livro(Livro NovoLivro);
+	public void Cadastrar_Usuario(Usuario NovoUsuario);
+	
+	public void Reg_Devolucoes();
+	public void Reg_Emprestimo();
+	
+	public void Avisar_Atraso(Usuario A);
+	
+	public int Calc_Atraso(Usuario A);
+	public int Calc_Suspensao(Usuario A);
+	
+	public void Listar_Livros();
+	public void Listar_Usuarios();
+	public void Listar_Emprestimos();
+
+}

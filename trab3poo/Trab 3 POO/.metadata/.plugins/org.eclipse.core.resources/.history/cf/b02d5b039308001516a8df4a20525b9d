@@ -1,0 +1,9 @@
+package trab3;
+
+public class Texto extends Livro { //Este tipo de livro so pode ser emprestado por profs e alunos
+	
+	public Texto(String Titulo, String Autor, int Quantidade, boolean Disponivel){
+		super(Titulo, Autor, Quantidade, Disponiveis);
+		
+	}
+}

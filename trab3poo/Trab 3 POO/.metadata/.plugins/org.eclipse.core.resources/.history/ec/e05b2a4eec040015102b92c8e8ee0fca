@@ -1,0 +1,74 @@
+package trab3;
+
+public class Biblioteca implements ADM {
+	
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+	}
+
+	@Override
+	public void Cadastrar_Livro(Livro NovoLivro) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Cadastrar_Usuario(Usuario NovoUsuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Reg_Devolucoes() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Reg_Emprestimo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Avisar_Atraso(Usuario A) {
+		// TODO Auto-generated method stub
+		A.Atrasado = True;
+		
+	}
+
+	@Override
+	public int Calc_Atraso(Usuario A) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int Calc_Suspensao(Usuario A) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void Listar_Livros() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Listar_Usuarios() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Listar_Emprestimos() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package trab3;
+
+public class Biblioteca implements ADM {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

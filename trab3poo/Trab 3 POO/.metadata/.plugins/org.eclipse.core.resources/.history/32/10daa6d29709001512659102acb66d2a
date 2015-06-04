@@ -1,0 +1,491 @@
+package trab3;
+
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Date.*;
+
+import com.opencsv.*;
+
+public class Biblioteca implements ADM { //esssa classe implementa a interface
+	
+
+
+	public static void main(String[] args) throws Exception {
+		//Load
+		int h = 1;
+		int ind_Livro=0;
+		int ind_Usuario=0;
+		int ind1=0;
+		int ind2=0;
+		Usuario[] A;
+		A = new Usuario[1000];
+		String csvFilename = "USUARIO.csv";
+		CSVReader csvReader = new CSVReader(new FileReader(csvFilename));
+		String[] row = new String[2];
+	
+		while((row = csvReader.readNext()) != null) {
+			
+			
+			
+		    A[ind_Usuario] = new Usuario();
+		    
+		    A[ind_Usuario].Nome=row[0];
+		  
+		    A[ind_Usuario].Tipo=row[1];
+
+		  
+		    
+		    ind_Usuario++;
+		}
+		
+		csvReader.close();
+		
+		Livro[] livro;
+		livro = new Livro[1000];
+		String Livros = "LIVRO.csv";
+		CSVReader rLivros = new CSVReader(new FileReader(Livros));
+		String[] row2 = new String[5];
+		
+		
+		while((row2 = rLivros.readNext()) != null) {
+			
+			
+		
+		    livro[ind_Livro] = new Livro();
+		    
+		    livro[ind_Livro].Titulo=row2[0];
+		    
+			//System.out.println(livro[ind_Livro].Titulo);
+
+		   // livro[ind_Livro].Autor = row2[1];
+		    livro[ind_Livro].Quantidade=Integer.parseInt(row2[2]);
+		    livro[ind_Livro].Disponiveis=Integer.parseInt(row2[3]);
+	
+		    
+		    ind_Livro++;
+		}
+		//~
+		
+		//System.out.println(livro[0].Titulo);
+		
+		Biblioteca Main = new Biblioteca();
+		int n = 0;
+		Date Dia = new Date();
+		int tipoL=0;
+
+		
+		//pegar a data
+	    System.out.println("Entre com a data desejada (no formato 'dd-MM-yyyy')\n");
+		try{
+    		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    		
+			BufferedReader BufData = new BufferedReader(new InputStreamReader(System.in));
+	        Dia = sdf.parse(BufData.readLine());
+        	
+    	}catch(ParseException ex){
+    		ex.printStackTrace();
+    	}
+
+	    //pegar a data
+		while(h == 1){
+
+	    System.out.println("1 - Cadastrar novo usuário \n"
+	    				+  "2 - Cadastrar novo livro \n"
+	    				+  "3 - Realizar empréstimo \n"
+	    				+  "4 - Registrar devolução\n"
+	    				+  "5 - Listas\n"
+	    				+  "6 - Salvar e sair");
+	
+	
+		try{
+	        BufferedReader NumMenu = new BufferedReader(new InputStreamReader(System.in));
+	        n = Integer.parseInt(NumMenu.readLine());
+	
+	        System.out.println(n);
+	    }
+	    catch(IOException e)
+	    {
+	        e.printStackTrace();
+	    }
+		
+
+		switch(n){
+			
+			case 1 : 
+			    
+			    
+			    
+			    
+			/*	try{
+			        BufferedReader BufTipoU = new BufferedReader(new InputStreamReader(System.in));
+			        int tipoU = Integer.parseInt(BufTipoU.readLine());
+		
+			        System.out.println(tipoU);
+			    }
+			    catch(IOException e)
+			    {
+			        e.printStackTrace();
+			    }
+				
+				if(tipoL == 1){
+					Professores prof = new Professores();
+					prof.Cadastrar_Usuario(A[ind_Usuario++]);
+					
+				}
+				else if (tipoL == 2){
+					Alunos Alu = new Alunos();
+					Alu.Cadastrar_Usuario(A[ind_Usuario++]);
+					
+				}
+				else {*/
+					//Comum comu = new Comum();
+					A[0].Cadastrar_Usuario(A[ind_Usuario]);
+					ind_Usuario++;
+					System.out.println(ind_Usuario);
+				//}
+				break;
+			case 2:
+				
+			    System.out.println("1 - Texto \n" + "2 - Geral\n");
+			    
+			    
+			    
+				try{
+			        BufferedReader BufTipoL = new BufferedReader(new InputStreamReader(System.in));
+			        tipoL = Integer.parseInt(BufTipoL.readLine());
+				}
+			    catch(IOException e)
+			    {
+			        e.printStackTrace();
+			    }
+				
+				if(tipoL == 1){
+					Texto L = new Texto();
+					livro[ind_Livro] = new Livro();
+					L.Cadastrar_Livro(livro[ind_Livro]);
+					ind_Livro++;
+					
+				}
+				else if (tipoL == 2){
+					Geral L = new Geral();
+					L.Cadastrar_Livro(livro[ind_Livro]);
+					ind_Livro++;
+				}
+				break;
+			case 3:
+				System.out.println("Digite o nome do usuário\n");
+				ind1=0;
+				ind2=0;
+				
+		        BufferedReader BufEmpUsuario = new BufferedReader(new InputStreamReader(System.in));
+		        String UsuarioEmp = BufEmpUsuario.readLine();
+		        for(int i  = 0; i<ind_Usuario; i++) {
+		        	if(A[i].Nome == UsuarioEmp) {
+		        		ind1 = i;
+		        		break;
+		        	}
+	
+		        }
+		        //buscar usuário?
+		        
+				System.out.println("Digite o nome do Livro\n");
+				
+		        BufferedReader BufEmpLivro = new BufferedReader(new InputStreamReader(System.in));
+		        String LivroEmp = BufEmpLivro.readLine();
+		        //buscar livro?
+		        for(int i  = 0; i<ind_Livro; i++) {
+		        	if(livro[i].Titulo == LivroEmp) {
+		        		ind2 = i;
+		        		break;
+		        	}
+	
+		        }
+		        
+		        
+				Main.Reg_Emprestimo(A[ind1],livro[ind2]);
+		        
+		        break;
+			case 4:
+				System.out.println("Digite o nome do usuário\n");
+				ind1=0;
+				ind2=0;
+				
+		        BufferedReader BufDevUsuario = new BufferedReader(new InputStreamReader(System.in));
+		        String UsuarioDev = BufDevUsuario.readLine();
+		        for(int i  = 0; i<ind_Usuario; i++) {
+		        	if(A[i].Nome == UsuarioDev) {
+		        		ind1 = i;
+		        		break;
+		        	}
+	
+		        }
+		        
+		        //buscar usuário?
+		        
+				System.out.println("Digite o nome do Livro\n"); /*Qual dos livros acima está sendo devolvido?  - Talvez*/
+				
+		        BufferedReader BufDevLivro = new BufferedReader(new InputStreamReader(System.in));
+		        String LivroDev = BufDevLivro.readLine();
+		        for(int i  = 0; i<ind_Livro; i++) {
+		        	if(livro[i].Titulo == LivroDev) {
+		        		ind2 = i;
+		        		break;
+		        	}
+	
+		        }
+		        //buscar livro?
+		        
+		        
+				Main.Reg_Devolucao(A[ind1],livro[ind2]);
+			
+			case 5:
+				System.out.println("1 - Usuários\n2 - Livros\n3 - Empréstimos");
+		        
+				BufferedReader BufLista = new BufferedReader(new InputStreamReader(System.in));
+		        int tipoLista = Integer.parseInt(BufLista.readLine());
+				
+		        
+		        if(tipoLista == 1){
+		        	for(int i =0; i<ind_Usuario; i++) Main.Listar_Usuarios(A[i]);
+	
+		        }
+		        else if(tipoLista == 2){
+		        	for(int i =0; i<ind_Livro; i++) Main.Listar_Livros(livro[i]);
+		        	
+		        }
+		        else if(tipoLista == 3){
+		        	Main.Listar_Emprestimos();
+		        }
+		        else System.out.println("Digite um número válido!");
+				
+		        break;
+		        
+			case 6:
+				h = 0;
+				break;
+		}
+	}
+		
+		
+		
+		
+		
+		
+		
+		//////////Save
+		System.out.println(ind_Livro);
+		
+		
+		String csv = "USUARIO.csv";
+		CSVWriter writer = new CSVWriter(new FileWriter(csv));
+		
+		
+		
+		for(int i = 0; i<ind_Usuario;i++) {
+			String [] Infos;
+			Infos = new String[2];
+			//A[i] = new Usuario();
+			
+			Infos[0] = A[i].Nome;//titulo
+			//System.out.println(A[i].Nome);
+			Infos[1] =A[i].Tipo;//autor
+			
+
+			
+
+			
+			
+			writer.writeNext(Infos);
+		}
+		
+		
+		String liv = "LIVRO.csv";
+		CSVWriter wliv = new CSVWriter(new FileWriter(liv));
+		
+		
+		
+		for(int i = 0; i<ind_Livro;i++) {
+			String [] Infos;
+			Infos = new String[5];
+			//livro[i]= new Livro();
+			
+			Infos[0] = livro[i].Titulo; //titulo
+		
+			Infos[1] =livro[i].Autor;//autor
+			
+			Infos[2] = Integer.toString(livro[i].Quantidade);//quantidade
+			
+			Infos[3] =Integer.toString(livro[i].Disponiveis);//disponiveis
+			
+			
+			wliv.writeNext(Infos);
+			
+		}
+		
+		 
+	
+		
+			
+		//~
+		
+		
+		
+		
+		
+		wliv.close();
+		rLivros.close();
+		writer.close();
+
+	}
+
+
+
+
+
+	@Override
+	public int Calc_Atraso(Usuario A) {
+		// TODO Auto-generated method stub
+		
+		//l = TimeUnit.DAYS.convert(l, TimeUnit.MILLISECONDS);
+		return 0;
+	}
+
+	@Override
+	public int Calc_Suspensao(Usuario A) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void Listar_Livros(Livro livro) throws Exception {
+		// TODO Auto-generated method stub
+		//Arquivos
+		/*
+		String csvFilename = "LIVRO.csv";
+		CSVReader csvReader = new CSVReader(new FileReader(csvFilename));*/
+		/*
+		String[] row = null;
+		while((row = csvReader.readNext()) != null) {
+		    System.out.println(row[0] + ", " + row[1] + ", " + row[2] + ", " + row[3]);
+		}
+		csvReader.close();
+		*/
+		
+		System.out.println(livro.Titulo + ", " + livro.Autor + ", " + livro.Quantidade + ", " + livro.Disponiveis);
+	}
+
+	@Override
+	public void Listar_Usuarios(Usuario A) throws Exception {
+		// TODO Auto-generated method stub
+
+		    System.out.println(A.Nome + ", " + A.Tipo);
+
+		}
+
+	@Override
+	public void Listar_Emprestimos() throws Exception{
+		// TODO Auto-generated method stub
+		String csvFilename = "EMPRESTIMO.csv";
+		CSVReader csvReader = new CSVReader(new FileReader(csvFilename));
+		String[] row = null;
+		while((row = csvReader.readNext()) != null) {
+		    System.out.println("Usuário: " + row[3] + " - Livro: " + row[4] + " - Entrega: " + row[1] + " - Emprestimo: " + row[2]);
+		}
+		csvReader.close();
+		}
+
+
+	@Override
+	public void Reg_Devolucao(Usuario A, Livro B) throws Exception {
+		// TODO Auto-generated method stub
+		A.numEmprestimos--;
+    	B.Disponiveis++;
+	}
+
+	@Override
+	public void Reg_Emprestimo(Usuario A, Livro B) throws IOException{
+		
+		
+		Geral Teste = new Geral();
+		
+		Comum comum = new Comum();
+		Professores prof = new Professores();
+		Alunos aluno = new Alunos();
+		
+		if(B.Disponiveis == 0){
+			System.out.println("Livro indisponivel no momento!");
+			return;
+		}
+		
+		if(B.equals(Teste) && A.equals(comum)){
+			System.out.println("Voce nao tem permissao para pegar este livro!");
+			return;
+		}
+		
+		if(A.equals(aluno) && A.numEmprestimos >= 4) {
+			System.out.println("Voce nao tem permissao para pegar este livro!");
+			return;
+			
+		}
+		
+		if(A.equals(prof) && A.numEmprestimos >= 5) {
+			System.out.println("Voce nao tem permissao para pegar este livro!");
+			return;		
+					
+		}
+		
+		if(A.equals(comum) && A.numEmprestimos >= 2) {
+			System.out.println("Voce nao tem permissao para pegar este livro!");
+			return;
+			
+		}
+		
+		//Inputs
+		String [] Emp;
+		Emp = new String[5];
+		Emp[0] = "False";//Atrasado (Boolean)
+		Emp[1] = "24/12/98";//Retirada
+		
+		Emp[2] = "1";//Entrega
+		Emp[3] = A.Nome;//Usuario
+		Emp[4] = "Olarson";//Livro
+		
+		//
+		
+		//Emprestimo.csv
+		String csv = "EMPRESTIMO.csv";
+		FileWriter fWriter = new FileWriter(csv, true);
+		CSVWriter writer2 = new CSVWriter(fWriter);
+		
+		writer2.writeNext(Emp, true);
+		writer2.close();
+		//~
+		
+		A.numEmprestimos++;
+		//B.Disponiveis--;
+	
+
+		
+	}
+
+	@Override
+	public void Avisar_Atraso(Usuario A, Livro B) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+
+	
+	public Biblioteca(){};
+
+}
+	
+
+/*
+ * -Arquivos
+ * -JavaFX
+ * 
+ * */
